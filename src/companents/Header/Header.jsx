@@ -3,17 +3,22 @@ import { FiMenu, FiX, FiPhone } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
+import { Autoplay, Pagination } from "swiper/modules";
 
 export default function MobileFirstLayout() {
     const [menuOpen, setMenuOpen] = useState(false);
     const swiperRef = useRef(null);
     const [activeImg, setActiveImg] = useState(null);
     const [open, setOpen] = useState(false);
-    const images = [
+    const img = [
         "/6919b57f96876f787637a902ea4e5888eb47ebb1.jpg",
-        "/0875dc54c11d9b0b821bd39a6a3b7a54ba7078a5.jpg",
-        "/f0e966385a21578dcc918f70ccdeb7332aa05f69.jpg",
     ];
+    const img2 = [
+        "/0875dc54c11d9b0b821bd39a6a3b7a54ba7078a5.jpg",
+    ]
+    const img3 = [
+        "/f0e966385a21578dcc918f70ccdeb7332aa05f69.jpg",
+    ]
 
     return (
         <div className="bg-white text-black">
@@ -88,26 +93,42 @@ export default function MobileFirstLayout() {
                                 →
                             </button>
 
-                            <Swiper
-                                onSwiper={(swiper) => (swiperRef.current = swiper)}
-                                spaceBetween={20}
-                                slidesPerView="auto"
-                                className="!pr-6"
-                            >
-                                {images.map((img, i) => (
-                                    <SwiperSlide key={i} className="!w-[280px]">
-                                        <div
-                                            onClick={() => setActiveImg(i)}
-                                            className="rounded-2xl border bg-white overflow-hidden shadow-sm cursor-pointer"
-                                        >
-                                            <img
-                                                src={img}
-                                                className="h-[200px] w-full object-cover"
-                                            />
+                            <div className="max-w-6xl mx-auto py-10">
+                                <Swiper
+                                    modules={[Navigation, Pagination, Autoplay]}
+                                    spaceBetween={20}
+                                    slidesPerView={1}
+                                    navigation
+                                    pagination={{ clickable: true }}
+                                    // autoplay={{ delay: 3000 }}
+                                    breakpoints={{
+                                        640: {
+                                            slidesPerView: 2,
+                                        },
+                                        1024: {
+                                            slidesPerView: 3,
+                                        },
+                                    }}
+                                    className="rounded-2xl"
+                                >
+                                    <SwiperSlide>
+                                        <div className="bg-white/50 h-[550px] p-3 rounded-2xl text-[#29494C] text-3xl font-bold">
+                                            <img src={img} alt="img" />
                                         </div>
                                     </SwiperSlide>
-                                ))}
-                            </Swiper>
+
+                                    <SwiperSlide>
+                                        <div className="bg-white/50 h-[550px] p-3 rounded-2xl text-[#29494C] text-3xl font-bold">
+                                            <img src={img2} alt="img" />
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className="bg-white/50 h-[550px] p-3 rounded-2xl text-[#29494C] text-3xl font-bold">
+                                            <img src={img3} alt="img" />
+                                        </div>
+                                    </SwiperSlide>
+                                </Swiper>
+                            </div>
                         </div>
 
                     </section>
