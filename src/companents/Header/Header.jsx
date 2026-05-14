@@ -3,7 +3,10 @@ import { FiMenu, FiX, FiPhone } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function MobileFirstLayout() {
     const [menuOpen, setMenuOpen] = useState(false);
