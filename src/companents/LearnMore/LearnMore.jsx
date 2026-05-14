@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom'
 
 const LearnMore = () => {
     const [open, setOpen] = useState(false);
+    const images = [
+        "/6919b57f96876f787637a902ea4e5888eb47ebb1.jpg"
+    ]
+    const img1 = [
+        "/5c91009a986673d420b83357c52960b33812f7a2.jpg"
+    ]
+    const img2 = [
+        "/a5f315016b726a77a832f96c8b6d0e8136c43dda.jpg"
+    ]
+    const img3 = [
+        "/282966dd86f5ccb8a3dda15ed4babf3bcab05a8c.jpg"
+    ]
     return (
 
 
@@ -66,7 +78,7 @@ const LearnMore = () => {
                 <div>
                     <h1 className='text-lg text-[#29494C] mb-4'>Участок Бакальская 1 (Аврора)</h1>
                     <div>
-                        <img src="/src/assets/6919b57f96876f787637a902ea4e5888eb47ebb1.jpg" alt="img" className='w-[300px] rounded-3xl h-[250px] mb-4' />
+                        <img src={images} alt="img" className='w-[300px] rounded-3xl h-[250px] mb-4' />
                         <div>
                             <span>
                                 <h1 className='text-[#29494C]'>500 000 ₽ </h1>
@@ -120,10 +132,10 @@ const LearnMore = () => {
                     <ol className='text-[#29494C]'>— Перевод в ИЖС за счет расширения</ol>
                 </div>
                 <div>
-                    <img src="/src/assets/5c91009a986673d420b83357c52960b33812f7a2.jpg" alt="map" className='mb-10' />
+                    <img src={img1} alt="map" className='mb-10' />
                     <div className='pb-10'>
-                        <img src="/src/assets/a5f315016b726a77a832f96c8b6d0e8136c43dda.jpg" alt="map" className='mb-10' />
-                        <img src="/src/assets/282966dd86f5ccb8a3dda15ed4babf3bcab05a8c.jpg" alt="map" />
+                        <img src={img2} alt="map" className='mb-10' />
+                        <img src={img3} alt="map" />
                     </div>
                 </div>
             </div>

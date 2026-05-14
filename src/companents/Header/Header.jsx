@@ -10,9 +10,9 @@ export default function MobileFirstLayout() {
     const [activeImg, setActiveImg] = useState(null);
     const [open, setOpen] = useState(false);
     const images = [
-        "/src/assets/6919b57f96876f787637a902ea4e5888eb47ebb1.jpg",
-        "/src/assets/0875dc54c11d9b0b821bd39a6a3b7a54ba7078a5.jpg",
-        "/src/assets/f0e966385a21578dcc918f70ccdeb7332aa05f69.jpg",
+        "/6919b57f96876f787637a902ea4e5888eb47ebb1.jpg",
+        "/0875dc54c11d9b0b821bd39a6a3b7a54ba7078a5.jpg",
+        "/f0e966385a21578dcc918f70ccdeb7332aa05f69.jpg",
     ];
 
     return (
