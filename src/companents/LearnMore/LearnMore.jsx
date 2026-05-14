@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { CiCircleChevLeft } from 'react-icons/ci'
 import { Link } from 'react-router-dom'
 

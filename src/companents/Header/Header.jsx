@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { FiMenu, FiX, FiPhone, FiSliders } from "react-icons/fi";
+import { FiMenu, FiX, FiPhone } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";

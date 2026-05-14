@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from './companents/Header/Header'
 import Hero from './companents/Hero/Hero'
 import Benefits from './companents/Benefits/Benefits'
