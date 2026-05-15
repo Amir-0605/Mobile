@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import bgImg from "../assets/5e311801e61caa5d48735b358c0815ffe340d436.jpg"
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ const Hero = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='bg-[url(src/assets/5e311801e61caa5d48735b358c0815ffe340d436.jpg)] bg-no-repeat pt-70 h-[1160px]'>
+        <div className='bg-[url("/src/companents/assets/5e311801e61caa5d48735b358c0815ffe340d436.jpg")] bg-no-repeat pt-100 h-[1150px]'>
             <div className='container'>
                 <h1 className='text-[#29494C] font-400 text-lg'>Крымские Берега:
                     Ваша земля с прозрачной историей

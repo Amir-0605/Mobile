@@ -4,7 +4,7 @@ const Footer = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='bg-[#D9D9D9]'>
+        <div className='bg-[#D9D9D9] pb-5'>
             <div className='container'>
                 <div>
                     {/* Modal */}

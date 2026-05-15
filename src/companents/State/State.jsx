@@ -1,7 +1,7 @@
 
 const State = () => {
     return (
-        <div className='bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)]'>
+        <div className='bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)] pb-10'>
             <div className='container'>
                 <h1 className='text-bold text-xl pt-10 border-b-1 pb-5'>Блок со статьями </h1>
                 <ol className='list-demical pt-4'>

@@ -1,225 +1,200 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiMenu, FiX, FiPhone } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
 
+import img1 from "../assets/img1.jpg";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
+import logo from "../assets/logo.png";
+
 export default function MobileFirstLayout() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const swiperRef = useRef(null);
     const [activeImg, setActiveImg] = useState(null);
     const [open, setOpen] = useState(false);
-    const images = [
-        "/6919b57f96876f787637a902ea4e5888eb47ebb1.jpg",
-        "/0875dc54c11d9b0b821bd39a6a3b7a54ba7078a5.jpg",
-        "/f0e966385a21578dcc918f70ccdeb7332aa05f69.jpg",
-    ];
+
+    const swiperRef = useRef(null);
+
+    const images = [img1, img2, img3];
+
+    useEffect(() => {
+        images.forEach((img) => {
+            const image = new Image();
+            image.src = img;
+        });
+    }, []);
 
     return (
-        <div className="bg-white text-black">
+        <div className="absolute inset-0 min-h-screen w-full bg-transparent text-white overflow-hidden">
 
             {/* HEADER */}
-            <header className="fixed left-0 right-0 top-0 z-40 border-b backdrop-blur">
-                <div className="container mx-auto flex items-center justify-between lg:px-10 py-4">
-                    <img src="/src/assets/logo.png" alt="logo" className="w-20 h-5" />
+            <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-white/10">
+                <div className="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between px-4 md:px-6 lg:px-10">
+                    <img src={logo} alt="logo" className="h-6 w-auto object-contain" />
 
-                    <button onClick={() => setMenuOpen(true)} className="lg:hidden">
-                        <FiMenu className="text-white" size={28} />
+                    <button
+                        onClick={() => setMenuOpen(true)}
+                        className="flex items-center justify-center lg:hidden"
+                    >
+                        <FiMenu size={28} />
                     </button>
                 </div>
             </header>
 
-            {/* BURGER MENU */}
+            {/* MENU */}
             {menuOpen && (
                 <>
                     <div
                         onClick={() => setMenuOpen(false)}
-                        className="fixed inset-0 z-[9998] bg-black/40"
+                        className="fixed inset-0 z-[90] bg-black/60"
                     />
 
-                    <div className="fixed top-0 right-0 z-[9999] h-full w-[80%] max-w-[320px] bg-white shadow-2xl">
-
-                        <div className="flex items-center justify-between border-b p-4">
-                            <h2 className="text-xl font-bold">Menu</h2>
-
+                    <div className="fixed top-0 right-0 z-[100] h-screen w-[85%] max-w-[320px] bg-white text-black shadow-2xl">
+                        <div className="flex items-center justify-between border-b p-5">
+                            <h2 className="text-xl font-semibold">Menu</h2>
                             <button onClick={() => setMenuOpen(false)}>
-                                <FiX size={26} />
+                                <FiX size={28} />
                             </button>
                         </div>
 
-                        <nav className="flex flex-col gap-6 p-6 text-lg">
-                            {/* <a href="#">Главная</a>
-                            <a href="#">Каталог</a>
-                            <Link to={"/reviews"}>Отзывы</Link> */}
-                            <Link to={"/filter"}>Фильтры</Link>
+                        <nav className="flex flex-col gap-5 p-5 text-lg">
+                            <Link to="/filter">Фильтры</Link>
                         </nav>
-
                     </div>
                 </>
             )}
 
             {/* MAIN */}
-            <main className="container absolute mx-auto px-4 lg:px-10 pt-24 pb-24">
+            <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-20 md:px-6 lg:px-10">
 
-                <div className="flex flex-col lg:flex-row gap-6">
-                    {/* CONTENT */}
-                    <section className="flex-1 min-w-0">
+                <section>
+                    <h1 className="mb-6 text-3xl font-bold md:text-5xl">
+                        Каталог
+                    </h1>
 
-                        <h1 className="text-3xl mt-7 text-white font-bold lg:text-5xl mb-3">
-                            Каталог
-                        </h1>
+                    {/* SWIPER WRAPPER */}
+                    <div className="relative w-full px-2 md:px-6">
 
+                        {/* LEFT */}
+                        <button
+                            onClick={() => swiperRef.current?.slidePrev()}
+                            className="absolute left-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow"
+                        >
+                            ←
+                        </button>
 
+                        {/* RIGHT */}
+                        <button
+                            onClick={() => swiperRef.current?.slideNext()}
+                            className="absolute right-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow"
+                        >
+                            →
+                        </button>
 
-                        {/* SWIPER */}
-                        <div className="relative">
-
-                            <button
-                                onClick={() => swiperRef.current?.slidePrev()}
-                                className="absolute left-2 top-1/2 -translate-y-1/2 z-50 rounded-full bg-white shadow p-2"
-                            >
-                                ←
-                            </button>
-
-                            <button
-                                onClick={() => swiperRef.current?.slideNext()}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 z-50 rounded-full bg-white shadow p-2"
-                            >
-                                →
-                            </button>
-
-                            <Swiper
-                                onSwiper={(swiper) => (swiperRef.current = swiper)}
-                                spaceBetween={20}
-                                slidesPerView="auto"
-                                className="!pr-6"
-                            >
-                                {images.map((img, i) => (
-                                    <SwiperSlide key={i} className="!w-[280px]">
-                                        <div
-                                            onClick={() => setActiveImg(i)}
-                                            className="rounded-2xl border bg-white overflow-hidden shadow-sm cursor-pointer"
-                                        >
-                                            <img
-                                                src={img}
-                                                className="h-[200px] w-full object-cover"
-                                            />
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </div>
-
-                    </section>
-                </div>
+                        <Swiper
+                            onSwiper={(swiper) => (swiperRef.current = swiper)}
+                            slidesPerView={1}
+                            centeredSlides={true}
+                            spaceBetween={80}
+                            className="w-full !overflow-visible"
+                        >
+                            {images.map((img, i) => (
+                                <SwiperSlide
+                                    key={i}
+                                    className="!w-[280px] sm:!w-[420px] ml-15 lg:!w-[600px]"
+                                >
+                                    <div
+                                        onClick={() => setActiveImg(i)}
+                                        className="overflow-hidden rounded-3xl bg-white/5 border border-white/10 cursor-pointer"
+                                    >
+                                        <img
+                                            src={img}
+                                            alt="img"
+                                            className="block h-[260px] sm:h-[380px] lg:h-[500px] w-full object-cover"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                </section>
             </main>
-
 
             {/* LIGHTBOX */}
             {activeImg !== null && (
-                <div className="fixed inset-0 z-[99999] bg-white flex items-center justify-center">
+                <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black p-4">
 
                     <button
                         onClick={() => setActiveImg(null)}
-                        className="absolute top-5 right-5 z-[100000] text-white bg-black/20 p-3 rounded-full"
+                        className="absolute right-4 top-4 text-3xl bg-white/10 rounded-full w-12 h-12"
                     >
-                        ✕
-                    </button>
-
-                    <button
-                        onClick={() =>
-                            setActiveImg((prev) =>
-                                prev <= 0 ? images.length - 1 : prev - 1
-                            )
-                        }
-                        className="fixed left-4 top-1/2 -translate-y-1/2 z-[100000] text-white bg-white/30 p-4 rounded-full"
-                    >
-                        ←
-                    </button>
-
-                    <button
-                        onClick={() =>
-                            setActiveImg((prev) =>
-                                prev >= images.length - 1 ? 0 : prev + 1
-                            )
-                        }
-                        className="fixed right-4 top-1/2 -translate-y-1/2 z-[100000] text-white bg-white/30 p-4 rounded-full"
-                    >
-                        →
+                        ×
                     </button>
 
                     <img
                         src={images[activeImg]}
-                        className="max-w-[90%] max-h-[80%] rounded-2xl"
+                        className="max-h-[85vh] max-w-[95vw] rounded-3xl object-contain"
+                        alt=""
                     />
                 </div>
             )}
 
-            {/* CALL BUTTON */}
-            <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4 lg:hidden">
-                <a onClick={() => setOpen(true)}
-                    className="w-full max-w-[420px] flex items-center justify-center gap-2 rounded-full bg-black py-2 text-white shadow-md"
+            {/* CALL */}
+            <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4">
+                <button
+                    onClick={() => setOpen(true)}
+                    className="flex h-[56px] w-full max-w-[420px] items-center justify-center gap-2 rounded-full bg-white text-black shadow-xl"
                 >
-                    <FiPhone size={14} />Позвонить
-                </a>
-
+                    <FiPhone size={18} />
+                    Позвонить
+                </button>
             </div>
 
-            <div>
-                {/* Кнопка ПОЗВОНИТЬ */}
+            {/* MODAL */}
+            {open && (
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
 
-                {/* Modal */}
-                {open && (
-                    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-5">
+                    <div className="relative w-full max-w-4xl rounded-[32px] bg-[#111] p-6 md:p-10 text-white">
 
-                        {/* Форма */}
-                        <div className="relative w-full max-w-5xl bg-[#0B0B0B] rounded-[30px] p-6 md:p-10 text-white">
+                        <button
+                            onClick={() => setOpen(false)}
+                            className="absolute right-5 top-5 text-3xl"
+                        >
+                            ×
+                        </button>
 
-                            {/* Закрыть */}
-                            <button
-                                onClick={() => setOpen(false)}
-                                className="absolute top-5 right-5 text-4xl text-white"
-                            >
-                                ×
+                        <h1 className="text-3xl md:text-5xl font-semibold mb-4">
+                            Оставьте заявку
+                        </h1>
+
+                        <p className="mb-8 text-white/70">
+                            Наш менеджер свяжется с вами
+                        </p>
+
+                        <div className="flex flex-col lg:flex-row gap-5">
+
+                            <div className="w-full bg-[#F6FFD7] p-4 rounded-2xl">
+
+                                <input
+                                    placeholder="Имя"
+                                    className="w-full h-[60px] mb-4 px-4 rounded-xl bg-[#EDF6E4] text-black"
+                                />
+
+                                <input
+                                    placeholder="+998..."
+                                    className="w-full h-[60px] px-4 rounded-xl bg-[#EDF6E4] text-black"
+                                />
+                            </div>
+
+                            <button className="h-[70px] w-full lg:w-[240px] rounded-2xl bg-[#F6FFD7] text-black text-xl">
+                                Готово
                             </button>
 
-                            {/* Заголовок */}
-                            <h1 className="text-2xl md:text-5xl font-semibold mb-5">
-                                Оставьте заявку на консультацию
-                            </h1>
-
-                            {/* Текст */}
-                            <p className="text-white/80 text-lg md:text-2xl mb-10">
-                                Наш менеджер свяжется с вами для уточнения всех деталей
-                            </p>
-
-                            {/* Inputs */}
-                            <div className="flex flex-col lg:flex-row gap-6 items-end">
-
-                                <div className="bg-[#F6FFD7] rounded-[30px] p-5 w-full">
-
-                                    <input
-                                        type="text"
-                                        placeholder="Имя"
-                                        className="w-full h-[70px] rounded-[20px] bg-[#EDF6E4] px-6 text-black outline-none mb-5"
-                                    />
-
-                                    <input
-                                        type="tel"
-                                        placeholder="+7 (000) 000 00 00"
-                                        className="w-full h-[70px] rounded-[20px] bg-[#EDF6E4] px-6 text-black outline-none"
-                                    />
-                                </div>
-
-                                <button className="w-full lg:w-[250px] h-[80px] rounded-[25px] bg-[#F6FFD7] text-black text-2xl font-medium">
-                                    Готово
-                                </button>
-                            </div>
                         </div>
                     </div>
-                )}
-            </div>
-
+                </div>
+            )}
         </div>
     );
 }
