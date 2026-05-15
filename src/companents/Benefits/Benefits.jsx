@@ -11,7 +11,7 @@ import img7 from "../assets/img7.png"
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 const Benefits = () => {
     return (
-        <div className='bg-[linear-gradient(45deg,#FFFFFF_0%,#99999999_100%)] pt-20 pb-10'>
+        <div className='bg-[linear-gradient(45deg,#FFFFFF_0%,#99999999_100%)] pt-25 pb-10'>
             <div className='container'>
                 <div>
                     <h1 className='text-[#29494C] text-xl font-600 border-b-1 pb-4 border-[#29494C]'>Преимущества природы Крыма</h1>
