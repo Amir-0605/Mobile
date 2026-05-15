@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { CiCircleChevLeft } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import img1 from "../assets/img1.webp"
+import img2 from "../assets/img2.webp"
+import img3 from "../assets/img3.webp"
+import { useParams } from "react-router-dom";
+
+
 
 const Filter = () => {
     const [type, setType] = useState("");
+    const { slug } = useParams();
 
     const [areaFrom, setAreaFrom] = useState("");
     const [areaTo, setAreaTo] = useState("");
@@ -33,25 +40,38 @@ const Filter = () => {
     };
 
     return (
-        <div className="max-w-5xl mx-auto p-5">
-            <Link to={'/'}><CiCircleChevLeft className="text-[#29494C]" /></Link>
+        <div className="max-w-6xl mx-auto p-4 md:p-6 lg:p-10">
 
-            <h1 className="text-[#29494C] text-lg font-400 mt-5">Каталог с фильтрами и карточками участка</h1>
-            <h2 className="text-[#29494C] text-sm font-400 mt-5 mb-5">Фильтрация участков с ограничением недоступных выборов</h2>
-            <div className="bg-white rounded-[30px] p-8 shadow-sm border border-gray-100">
+            <Link to={'/'}>
+                <CiCircleChevLeft className="text-[#29494C] text-2xl md:text-3xl" />
+            </Link>
 
-                <h2 className="text-3xl font-semibold mb-8">
+            <h1 className="text-[#29494C] text-lg md:text-xl font-400 mt-5">
+                Каталог с фильтрами и карточками участка
+            </h1>
+
+            <h2 className="text-[#29494C] text-sm md:text-base font-400 mt-3 mb-5">
+                Фильтрация участков с ограничением недоступных выборов
+            </h2>
+
+            {/* FILTER */}
+            <div className="bg-white rounded-[30px] p-5 md:p-8 lg:p-10 shadow-sm border border-gray-100">
+
+                <h2 className="text-2xl md:text-3xl font-semibold mb-8">
                     Фильтры
                 </h2>
 
-                {/* Тип участка */}
-                <div className="flex items-center justify-between py-6 border-b border-gray-200">
-                    <span className="text-sm font-medium">Тип участка</span>
+                {/* TYPE */}
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 border-b border-gray-200 gap-4">
 
-                    <div className="flex gap-3">
+                    <span className="text-sm md:text-base font-medium">
+                        Тип участка
+                    </span>
+
+                    <div className="flex gap-3 flex-wrap">
                         <button
                             onClick={() => setType("ИЖС")}
-                            className={`px-6 py-3 rounded-xl border transition ${type === "ИЖС"
+                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "ИЖС"
                                 ? "bg-black text-white border-black"
                                 : "bg-white border-gray-300"
                                 }`}
@@ -61,7 +81,7 @@ const Filter = () => {
 
                         <button
                             onClick={() => setType("ЛПХ")}
-                            className={`px-6 py-3 rounded-xl border transition ${type === "ЛПХ"
+                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "ЛПХ"
                                 ? "bg-black text-white border-black"
                                 : "bg-white border-gray-300"
                                 }`}
@@ -71,9 +91,12 @@ const Filter = () => {
                     </div>
                 </div>
 
-                {/* Площадь */}
-                <div className="flex items-center justify-between gap-3 py-6 border-b border-gray-200">
-                    <span className="text-sm font-medium">Площадь</span>
+                {/* AREA */}
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 py-6 border-b border-gray-200">
+
+                    <span className="text-sm md:text-base font-medium">
+                        Площадь
+                    </span>
 
                     <div className="flex gap-3">
                         <input
@@ -81,7 +104,7 @@ const Filter = () => {
                             placeholder="от"
                             value={areaFrom}
                             onChange={(e) => setAreaFrom(e.target.value)}
-                            className="w-[80px] h-10 px-4 rounded-xl border border-gray-300 outline-none"
+                            className="w-[80px] md:w-[100px] h-10 px-3 md:px-4 rounded-xl border border-gray-300 outline-none"
                         />
 
                         <input
@@ -89,14 +112,17 @@ const Filter = () => {
                             placeholder="до"
                             value={areaTo}
                             onChange={(e) => setAreaTo(e.target.value)}
-                            className="w-[80px] h-10 px-4 rounded-xl border border-gray-300 outline-none"
+                            className="w-[80px] md:w-[100px] h-10 px-3 md:px-4 rounded-xl border border-gray-300 outline-none"
                         />
                     </div>
                 </div>
 
-                {/* Цена */}
-                <div className="flex items-center justify-between py-6 border-b border-gray-200">
-                    <span className="text-sm font-medium">Цена</span>
+                {/* PRICE */}
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 border-b border-gray-200 gap-3">
+
+                    <span className="text-sm md:text-base font-medium">
+                        Цена
+                    </span>
 
                     <div className="flex gap-3">
                         <input
@@ -104,7 +130,7 @@ const Filter = () => {
                             placeholder="от"
                             value={priceFrom}
                             onChange={(e) => setPriceFrom(e.target.value)}
-                            className="w-[80px] h-12 px-4 rounded-xl border border-gray-300 outline-none"
+                            className="w-[80px] md:w-[100px] h-10 md:h-12 px-3 md:px-4 rounded-xl border border-gray-300 outline-none"
                         />
 
                         <input
@@ -112,78 +138,42 @@ const Filter = () => {
                             placeholder="до"
                             value={priceTo}
                             onChange={(e) => setPriceTo(e.target.value)}
-                            className="w-[80px] h-12 px-4 rounded-xl border border-gray-300 outline-none"
+                            className="w-[80px] md:w-[100px] h-10 md:h-12 px-3 md:px-4 rounded-xl border border-gray-300 outline-none"
                         />
                     </div>
                 </div>
 
-                {/* Коммуникации */}
-                <div className="flex flex-col items-center justify-between py-6">
-                    <span className="text-lg font-medium">Коммуникации</span>
+                {/* COMMUNICATIONS */}
+                <div className="py-6">
 
-                    <div className="flex gap-5 mt-5 flex-wrap">
+                    <span className="text-base md:text-lg font-medium">
+                        Коммуникации
+                    </span>
 
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="checkbox"
-                                checked={communications.gas}
-                                onChange={(e) =>
-                                    setCommunications({
-                                        ...communications,
-                                        gas: e.target.checked,
-                                    })
-                                }
-                            />
-                            Газ
-                        </label>
+                    <div className="flex flex-wrap gap-5 mt-5">
 
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="checkbox"
-                                checked={communications.light}
-                                onChange={(e) =>
-                                    setCommunications({
-                                        ...communications,
-                                        light: e.target.checked,
-                                    })
-                                }
-                            />
-                            Свет
-                        </label>
-
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="checkbox"
-                                checked={communications.water}
-                                onChange={(e) =>
-                                    setCommunications({
-                                        ...communications,
-                                        water: e.target.checked,
-                                    })
-                                }
-                            />
-                            Вода
-                        </label>
-
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="checkbox"
-                                checked={communications.internet}
-                                onChange={(e) =>
-                                    setCommunications({
-                                        ...communications,
-                                        internet: e.target.checked,
-                                    })
-                                }
-                            />
-                            Интернет
-                        </label>
+                        {["gas", "light", "water", "internet"].map((key) => (
+                            <label key={key} className="flex items-center gap-2 text-sm md:text-base">
+                                <input
+                                    type="checkbox"
+                                    checked={communications[key]}
+                                    onChange={(e) =>
+                                        setCommunications({
+                                            ...communications,
+                                            [key]: e.target.checked,
+                                        })
+                                    }
+                                />
+                                {key}
+                            </label>
+                        ))}
 
                     </div>
                 </div>
 
-                {/* Кнопки */}
-                <div className="flex gap-4 mt-8">
+                {/* BUTTONS */}
+                <div className="flex gap-4 mt-8 flex-col md:flex-row">
+
                     <button
                         onClick={resetFilters}
                         className="px-6 py-3 rounded-xl bg-[#EAE4DA] text-[#29494C] border border-[#9E8470CC]"
@@ -194,106 +184,56 @@ const Filter = () => {
                     <button className="px-6 py-3 rounded-xl bg-[#29494C] text-[#FFFEEB]">
                         Применить
                     </button>
+
                 </div>
             </div>
-            <div>
-                <h1 className="text-[#29494C] text-lg font-400 mt-10">Подходящие варианты:</h1>
-                <div className="bg-[#FFFFFF33] backdrop-blur-sm rounded-2xl mt-5 p-4 border border-white/20 shadow-lg w-80">
 
-                    <img
-                        src="/src/assets/6919b57f96876f787637a902ea4e5888eb47ebb1.jpg"
-                        className="h-50 w-full object-cover rounded-xl"
-                        alt="img"
-                    />
+            {/* RESULTS */}
+            <h1 className="text-[#29494C] text-lg md:text-xl font-400 mt-10">
+                Подходящие варианты:
+            </h1>
 
-                    <div className="mt-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
 
-                        <h1 className="text-[#29494C] text-xl font-medium">
-                            Участок Бакальская 1 (Аврора)
-                        </h1>
+                {[img1, img2, img3].map((img, i) => (
+                    <div key={i} className="bg-[#FFFFFF33] backdrop-blur-sm rounded-2xl p-4 border border-white/20 shadow-lg w-full">
 
-                        <p className="text-[#28727A] text-xl font-medium mt-2">
-                            500 000 ₽
-                        </p>
+                        <img
+                            src={img}
+                            className="h-50 w-full object-cover rounded-xl"
+                            alt="img"
+                            loading="lazy"
+                        />
 
-                        <p className="text-[#666666] text-lg mt-2">
-                            6 Соток
-                        </p>
+                        <div className="mt-3">
 
-                        <div className="mt-4 flex justify-center">
-                            <Link to={"/learnmore"} className="w-full text-center p-3 rounded-3xl border text-[#29494C] shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:scale-[1.02] transition">
-                                Подробнее
-                            </Link>
+                            <h1 className="text-[#29494C] text-xl font-medium">
+                                Участок {i + 1}
+                            </h1>
+
+                            <p className="text-[#28727A] text-xl font-medium mt-2">
+                                500 000 ₽
+                            </p>
+
+                            <p className="text-[#666666] text-lg mt-2">
+                                6 Соток
+                            </p>
+
+                            <div className="mt-4 flex justify-center">
+                                <Link
+                                    to={"/learnmore"}
+                                    className="w-full text-center p-3 rounded-3xl border text-[#29494C] shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:scale-[1.02] transition"
+                                >
+                                    Подробнее
+                                </Link>
+                            </div>
+
                         </div>
-
                     </div>
-
-                </div>
-                <div className="bg-[#FFFFFF33] backdrop-blur-sm rounded-2xl mt-5 p-4 border border-white/20 shadow-lg w-80">
-
-                    <img
-                        src="/src/assets/0875dc54c11d9b0b821bd39a6a3b7a54ba7078a5.jpg"
-                        className="h-50 w-full object-cover rounded-xl"
-                        alt="img"
-                    />
-
-                    <div className="mt-3">
-
-                        <h1 className="text-[#29494C] text-xl font-medium">
-                            Участок Бакальская 2
-                        </h1>
-
-                        <p className="text-[#28727A] text-xl font-medium mt-2">
-                            400 000 ₽
-                        </p>
-
-                        <p className="text-[#666666] text-lg mt-2">
-                            6 Соток
-                        </p>
-
-                        <div className="mt-4 flex justify-center">
-                            <Link className="w-full text-center p-3 rounded-3xl border text-[#29494C] shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:scale-[1.02] transition">
-                                Подробнее
-                            </Link>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div className="bg-[#FFFFFF33] backdrop-blur-sm rounded-2xl mt-5 p-4 border border-white/20 shadow-lg w-80">
-
-                    <img
-                        src="/src/assets/f0e966385a21578dcc918f70ccdeb7332aa05f69.jpg"
-                        className="h-50 w-full object-cover rounded-xl"
-                        alt="img"
-                    />
-
-                    <div className="mt-3">
-
-                        <h1 className="text-[#29494C] text-xl font-medium">
-                            KARA DENIZ
-                        </h1>
-
-                        <p className="text-[#28727A] text-xl font-medium mt-2">
-                            750 000 ₽
-                        </p>
-
-                        <p className="text-[#666666] text-lg mt-2">
-                            6 Соток
-                        </p>
-
-                        <div className="mt-4 flex justify-center">
-                            <Link className="w-full text-center p-3 rounded-3xl border text-[#29494C] shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:scale-[1.02] transition">
-                                Подробнее
-                            </Link>
-                        </div>
-
-                    </div>
-
-                </div>
+                ))}
 
             </div>
+
         </div>
     );
 };

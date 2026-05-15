@@ -3,11 +3,11 @@ import { FiMenu, FiX, FiPhone } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
+import img1 from "../assets/img1.webp"
+import img2 from "../assets/img2.webp"
+import img3 from "../assets/img3.webp"
+import logo from "../assets/logo.png"
 
-import img1 from "../assets/img1.jpg";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-import logo from "../assets/logo.png";
 
 export default function MobileFirstLayout() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -26,12 +26,13 @@ export default function MobileFirstLayout() {
     }, []);
 
     return (
-        <div className="absolute inset-0 min-h-screen w-full bg-transparent text-white overflow-hidden">
+        <div className="absolute inset-0 min-h-screen w-full bg-transparent text-white overflow-hidden lg:px-10 lg:mx-auto">
 
             {/* HEADER */}
             <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-white/10">
                 <div className="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between px-4 md:px-6 lg:px-10">
-                    <img src={logo} alt="logo" className="h-18 w-auto object-contain" />
+                    <img src={logo} alt="logo" className="h-6 w-auto object-cover lg:h-15 lg:w-35" />
+                    <p onClick={() => setOpen(true)} className="hidden cursor-pointer lg:block lg:text-3xl">7-(978)995-75-05</p>
 
                     <button
                         onClick={() => setMenuOpen(true)}
@@ -69,12 +70,13 @@ export default function MobileFirstLayout() {
             <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-20 md:px-6 lg:px-10">
 
                 <section>
-                    <h1 className="mb-6 text-3xl font-bold md:text-5xl">
+
+                    <h1 className="mb-6 text-3xl font-bold md:text-5xl lg:text-6xl">
                         Каталог
                     </h1>
 
                     {/* SWIPER WRAPPER */}
-                    <div className="relative w-full px-2 md:px-6">
+                    <div className="relative w-full px-2 md:px-6 lg:px-10">
 
                         {/* LEFT */}
                         <button
@@ -96,13 +98,13 @@ export default function MobileFirstLayout() {
                             onSwiper={(swiper) => (swiperRef.current = swiper)}
                             slidesPerView={1}
                             centeredSlides={true}
-                            spaceBetween={80}
-                            className="w-full !overflow-visible z-0"
+                            spaceBetween={240}
+                            className="w-70 lg:w-150"
                         >
                             {images.map((img, i) => (
                                 <SwiperSlide
                                     key={i}
-                                    className="!w-[280px] sm:!w-[420px] ml-15 lg:!w-[600px]"
+                                    className="!w-[280px] sm:!w-[420px] lg:!w-[600px]"
                                 >
                                     <div
                                         onClick={() => setActiveImg(i)}
@@ -112,6 +114,7 @@ export default function MobileFirstLayout() {
                                             src={img}
                                             alt="img"
                                             className="block h-[260px] sm:h-[380px] lg:h-[500px] w-full object-cover"
+                                            loading="lazy"
                                         />
                                     </div>
                                 </SwiperSlide>
@@ -135,16 +138,17 @@ export default function MobileFirstLayout() {
                     <img
                         src={images[activeImg]}
                         className="max-h-[85vh] max-w-[95vw] rounded-3xl object-contain"
-                        alt=""
+                        alt="img"
+                        loading="lazy"
                     />
                 </div>
             )}
 
             {/* CALL */}
-            <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4">
+            <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4 lg:bottom-6">
                 <button
                     onClick={() => setOpen(true)}
-                    className="flex h-[56px] w-full max-w-[420px] items-center justify-center gap-2 rounded-full bg-white text-black shadow-xl"
+                    className="flex h-[56px] w-full max-w-[420px] lg:max-w-[500px] items-center justify-center gap-2 rounded-full bg-white text-black shadow-xl"
                 >
                     <FiPhone size={18} />
                     Позвонить

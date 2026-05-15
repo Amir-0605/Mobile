@@ -1,13 +1,12 @@
 import { CiCircleChevLeft } from 'react-icons/ci'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 const KnowBenefits = () => {
+    const { slug } = useParams();
     return (
         <div className='bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)] pt-10'>
             <div className='container'>
