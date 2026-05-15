@@ -1,16 +1,15 @@
-import { lazy, useState } from 'react'
+import { useState } from 'react'
 import { CiCircleChevLeft } from 'react-icons/ci'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Helmet } from "react-helmet";
-const img1 = lazy(() => import("../assets/img1.webp"))
-const map1 = lazy(() => import("../assets/map1.webp"))
-const map2 = lazy(() => import("../assets/map2.webp"))
-const map3 = lazy(() => import("../assets/map3.webp"))
+import img1 from "../assets/img1.webp"
+import map1 from "../assets/map1.webp"
+import map2 from "../assets/map2.webp"
+import map3 from "../assets/map3.webp"
 const LearnMore = () => {
     const [open, setOpen] = useState(false);
-    const { slug } = useParams();
     return (
-        
+
 
         <div className='container mx-auto px-4 md:px-6 lg:px-10'>
 
@@ -98,7 +97,7 @@ const LearnMore = () => {
                             src={img1}
                             alt="img"
                             className='w-full md:w-[400px] lg:w-[500px] rounded-3xl h-[250px] md:h-[300px] mb-4 object-cover'
-                            loading='lazy'
+
                         />
 
                         <div>
