@@ -97,7 +97,7 @@ export default function MobileFirstLayout() {
                             slidesPerView={1}
                             centeredSlides={true}
                             spaceBetween={80}
-                            className="w-full !overflow-visible"
+                            className="w-full !overflow-visible z-0"
                         >
                             {images.map((img, i) => (
                                 <SwiperSlide
@@ -165,11 +165,11 @@ export default function MobileFirstLayout() {
                         </button>
 
                         <h1 className="text-3xl md:text-5xl font-semibold mb-4">
-                            Оставьте заявку
+                            Оставьте заявку на консультацию
                         </h1>
 
                         <p className="mb-8 text-white/70">
-                            Наш менеджер свяжется с вами
+                            Наш менеджер свяжется с вами для уточнения всех деталей и подбора идеального варианта
                         </p>
 
                         <div className="flex flex-col lg:flex-row gap-5">
@@ -182,7 +182,7 @@ export default function MobileFirstLayout() {
                                 />
 
                                 <input
-                                    placeholder="+998..."
+                                    placeholder="+7 (000) 000 00 00"
                                     className="w-full h-[60px] px-4 rounded-xl bg-[#EDF6E4] text-black"
                                 />
                             </div>

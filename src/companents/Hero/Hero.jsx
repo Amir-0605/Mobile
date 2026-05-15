@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import bgImg from "../assets/5e311801e61caa5d48735b358c0815ffe340d436.jpg"
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom';
@@ -20,8 +19,8 @@ const Hero = () => {
                 <h3 className='mt-2 text-base text-[#29494C]'>Прямая продажа участков от собственника. <br />
                     Мы гарантируем юридическую чистоту каждого метра: от небольших наделов под дом, до гектарных массивов для бизнеса</h3>
                 <div className='flex gap-3 pb-1 pt-3'>
-                    <Link to={"/filter"} className='bg-[#29494C] text-[#fff] p-2 text-sm rounded-3xl shadow-[0_4px_20px_#00000040] cursor-pointer'>Подобрать участок</Link>
-                    <button onClick={() => setOpen(true)} className='text-sm p-2 border border-[#9E8470E5] text-[#29494C] rounded-3xl cursor-pointer shadow-[0_4px_20px_#00000040]'>Связаться с нами</button>
+                    <Link to={"/filter"} className='z-10 bg-[#29494C] text-[#fff] p-2 text-sm rounded-3xl shadow-[0_4px_20px_#00000040] cursor-pointer'>Подобрать участок</Link>
+                    <button onClick={() => setOpen(true)} className='z-10 text-sm p-2 border border-[#9E8470E5] text-[#29494C] rounded-3xl cursor-pointer shadow-[0_4px_20px_#00000040]'>Связаться с нами</button>
                 </div>
                 <div>
                     <h1 className='text-[#233F41] text-lg'>Кому подойдёт покупка земли?</h1>
@@ -101,54 +100,47 @@ const Hero = () => {
                     </div>
                 </div>
                 <div>
-                    {/* Кнопка ПОЗВОНИТЬ */}
 
-                    {/* Modal */}
+                    {/* MODAL */}
                     {open && (
-                        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-5">
+                        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
 
-                            {/* Форма */}
-                            <div className="relative w-full max-w-5xl bg-[#0B0B0B] rounded-[30px] p-6 md:p-10 text-white">
+                            <div className="relative w-full max-w-4xl rounded-[32px] bg-[#111] p-6 md:p-10 text-white">
 
-                                {/* Закрыть */}
                                 <button
                                     onClick={() => setOpen(false)}
-                                    className="absolute top-5 right-5 text-4xl text-white"
+                                    className="absolute right-5 top-5 text-3xl"
                                 >
                                     ×
                                 </button>
 
-                                {/* Заголовок */}
-                                <h1 className="text-2xl md:text-5xl font-semibold mb-5">
+                                <h1 className="text-3xl md:text-5xl font-semibold mb-4">
                                     Оставьте заявку на консультацию
                                 </h1>
 
-                                {/* Текст */}
-                                <p className="text-white/80 text-lg md:text-2xl mb-10">
-                                    Наш менеджер свяжется с вами для уточнения всех деталей
+                                <p className="mb-8 text-white/70">
+                                    Наш менеджер свяжется с вами для уточнения всех деталей и подбора идеального варианта
                                 </p>
 
-                                {/* Inputs */}
-                                <div className="flex flex-col lg:flex-row gap-6 items-end">
+                                <div className="flex flex-col lg:flex-row gap-5">
 
-                                    <div className="bg-[#F6FFD7] rounded-[30px] p-5 w-full">
+                                    <div className="w-full bg-[#F6FFD7] p-4 rounded-2xl">
 
                                         <input
-                                            type="text"
                                             placeholder="Имя"
-                                            className="w-full h-[70px] rounded-[20px] bg-[#EDF6E4] px-6 text-black outline-none mb-5"
+                                            className="w-full h-[60px] mb-4 px-4 rounded-xl bg-[#EDF6E4] text-black"
                                         />
 
                                         <input
-                                            type="tel"
                                             placeholder="+7 (000) 000 00 00"
-                                            className="w-full h-[70px] rounded-[20px] bg-[#EDF6E4] px-6 text-black outline-none"
+                                            className="w-full h-[60px] px-4 rounded-xl bg-[#EDF6E4] text-black"
                                         />
                                     </div>
 
-                                    <button className="w-full lg:w-[250px] h-[80px] rounded-[25px] bg-[#F6FFD7] text-black text-2xl font-medium">
+                                    <button className="h-[70px] w-full lg:w-[240px] rounded-2xl bg-[#F6FFD7] text-black text-xl">
                                         Готово
                                     </button>
+
                                 </div>
                             </div>
                         </div>
