@@ -94,7 +94,7 @@ const Hero = () => {
                                 </div>
                             </SwiperSlide>
                         </Swiper>
-                        <div className='flex justify-center border p-2 mt-3 bg-[#FFFFFF33] border-[#9E8470CC] shadow-[0_4px_20px_shadow-[0_4px_20px_#00000040]] rounded-3xl'>
+                        <div className='flex justify-center border p-2 mt-2 bg-[#FFFFFF33] border-[#9E8470CC] shadow-[0_4px_20px_shadow-[0_4px_20px_#00000040]] rounded-3xl'>
                             <Link to={'/knowbenefits'} className='text-sm'>Узнать о выгоде инвестиций</Link>
                         </div>
                     </div>

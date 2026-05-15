@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 export default function Reviews() {
     return (
         <div className="bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)]">
+            <h1 className="text-xl text-[#29494C] border-b-1 pb-4 pl-5 mb-5 pt-3">Часто задаваемые вопросы</h1>
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={20}
