@@ -23,16 +23,19 @@ export default function MobileFirstLayout() {
             const image = new Image();
             image.src = img;
         });
-    }, []);
+    }, [images]);
 
     return (
-        <div className="absolute inset-0 min-h-screen w-full bg-transparent text-white overflow-hidden lg:px-10 lg:mx-auto">
+        <div className="absolute inset-0 h-380 pt-190 w-full bg-transparent text-white overflow-hidden lg:px-10 lg:mx-auto">
 
             {/* HEADER */}
             <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-white/10">
                 <div className="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between px-4 md:px-6 lg:px-10">
-                    <img src={logo} alt="logo" className="h-6 w-auto object-cover lg:h-15 lg:w-35" />
-                    <p onClick={() => setOpen(true)} className="hidden cursor-pointer lg:block lg:text-3xl">7-(978)995-75-05</p>
+                    <img src={logo} alt="logo" className="h-15 w-auto object-cover lg:h-15 lg:w-35" />
+                    <div className="flex gap-10 items-center">
+                        <Link className="text-3xl lg:block hidden">Каталог</Link>
+                        <p onClick={() => setOpen(true)} className="hidden cursor-pointer lg:block lg:text-3xl">7-(978)995-75-05</p>
+                    </div>
 
                     <button
                         onClick={() => setMenuOpen(true)}
@@ -61,19 +64,16 @@ export default function MobileFirstLayout() {
 
                         <nav className="flex flex-col gap-5 p-5 text-lg">
                             <Link to="/filter">Фильтры</Link>
+                            <Link to="/" className="lg:hidden">Каталог</Link>
                         </nav>
                     </div>
                 </>
             )}
 
             {/* MAIN */}
-            <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-20 md:px-6 lg:px-10">
+            <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-50 md:px-6 lg:px-10">
 
                 <section>
-
-                    <h1 className="mb-6 text-3xl font-bold md:text-5xl lg:text-6xl">
-                        Каталог
-                    </h1>
 
                     {/* SWIPER WRAPPER */}
                     <div className="relative w-full px-2 md:px-6 lg:px-10">
@@ -99,7 +99,7 @@ export default function MobileFirstLayout() {
                             slidesPerView={1}
                             centeredSlides={true}
                             spaceBetween={240}
-                            className="w-70 lg:w-150"
+                            className="w-70 lg:w-150 pt-100"
                         >
                             {images.map((img, i) => (
                                 <SwiperSlide

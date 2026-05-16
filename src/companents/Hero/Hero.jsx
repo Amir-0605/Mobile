@@ -9,7 +9,7 @@ const Hero = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='bg-[url("/src/companents/assets/bgimg.webp")] bg-no-repeat pt-100 lg:pt-170 lg:w-full h-[1150px] lg:h-auto lg:bg-cover lg:bg-center'>
+        <div className='bg-[url("/src/companents/assets/bgimg.webp")] bg-no-repeat pt-25 lg:pt-30 lg:pb-150 lg:w-full h-[1150px] lg:h-auto lg:bg-cover lg:bg-center'>
             <div className='container lg:max-w-7xl lg:mx-auto'>
                 <h1 className='text-[#29494C] font-400 text-lg lg:text-4xl'>
                     Крымские Берега:
@@ -99,7 +99,7 @@ const Hero = () => {
                         </Swiper>
 
                         <div className='flex justify-center border p-2 lg:p-3 mt-3 bg-[#FFFFFF33] border-[#9E8470CC] shadow-[0_4px_20px_#00000040] rounded-3xl lg:mt-6'>
-                            <Link to={'/knowbenefits'} className='text-sm lg:text-base'>
+                            <Link to={'/knowbenefits'} className='text-sm z-999 lg:text-base'>
                                 Узнать о выгоде инвестиций
                             </Link>
                         </div>

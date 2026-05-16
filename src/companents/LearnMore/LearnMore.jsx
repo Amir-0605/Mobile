@@ -12,7 +12,6 @@ const LearnMore = () => {
 
 
         <div className='container mx-auto px-4 md:px-6 lg:px-10'>
-
             <>
                 <Helmet>
                     <script type="application/ld+json">
@@ -28,8 +27,6 @@ const LearnMore = () => {
                         })}
                     </script>
                 </Helmet>
-
-                <div>...</div>
             </>
             <div>
 
@@ -100,7 +97,7 @@ const LearnMore = () => {
 
                         />
 
-                        <div>
+                        <div className='flex justify-between items-center'>
                             <span>
                                 <h1 className='text-[#29494C] text-lg md:text-xl'>500 000 ₽</h1>
                                 <p className='text-[#29494C] text-sm md:text-base'>6 Соток</p>
@@ -130,6 +127,11 @@ const LearnMore = () => {
                         </span>
 
                         <span className='flex justify-between'>
+                            <p className='text-xs md:text-sm text-[#29494C]'>для чего подходит:</p>
+                            <p className='text-xs md:text-sm text-[#29494C]'>Туристическое обслуживание, Сельхоз деятельность, Малоэтажное строительство</p>
+                        </span>
+
+                        <span className='flex justify-between'>
                             <p className='text-xs md:text-sm text-[#29494C]'>Площадь:</p>
                             <p className='text-xs md:text-sm text-[#29494C]'>6 соток</p>
                         </span>
@@ -137,6 +139,16 @@ const LearnMore = () => {
                         <span className='flex justify-between'>
                             <p className='text-xs md:text-sm text-[#29494C]'>До моря:</p>
                             <p className='text-xs md:text-sm text-[#29494C]'>1 км</p>
+                        </span>
+
+                        <span className='flex justify-between'>
+                            <p className='text-xs md:text-sm text-[#29494C]'>До лечебных озер:</p>
+                            <p></p>
+                        </span>
+
+                        <span className='flex justify-between'>
+                            <p className='text-xs md:text-sm text-[#29494C]'>До дороги:</p>
+                            <p></p>
                         </span>
 
                         <span className='flex justify-between'>

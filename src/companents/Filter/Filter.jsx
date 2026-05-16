@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import img1 from "../assets/img1.webp"
 import img2 from "../assets/img2.webp"
 import img3 from "../assets/img3.webp"
-import { useParams } from "react-router-dom";
 
 
 
 const Filter = () => {
     const [type, setType] = useState("");
-    const { slug } = useParams();
+    const [allSelected, setAllSelected] = useState(false);
 
     const [areaFrom, setAreaFrom] = useState("");
     const [areaTo, setAreaTo] = useState("");
@@ -31,6 +30,7 @@ const Filter = () => {
         setAreaTo("");
         setPriceFrom("");
         setPriceTo("");
+        setAllSelected(false)
         setCommunications({
             gas: false,
             light: false,
@@ -71,7 +71,7 @@ const Filter = () => {
                     <div className="flex gap-3 flex-wrap">
                         <button
                             onClick={() => setType("ИЖС")}
-                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "ИЖС"
+                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "ИЖС" || allSelected
                                 ? "bg-black text-white border-black"
                                 : "bg-white border-gray-300"
                                 }`}
@@ -81,12 +81,39 @@ const Filter = () => {
 
                         <button
                             onClick={() => setType("ЛПХ")}
-                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "ЛПХ"
+                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "ЛПХ" || allSelected
                                 ? "bg-black text-white border-black"
                                 : "bg-white border-gray-300"
                                 }`}
                         >
                             ЛПХ
+                        </button>
+                        <button
+                            onClick={() => setType("коммерция")}
+                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "коммерция" || allSelected
+                                ? "bg-black text-white border-black"
+                                : "bg-white border-gray-300"
+                                }`}
+                        >
+                            коммерция
+                        </button>
+                        <button
+                            onClick={() => setType("сельхоз")}
+                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${type === "сельхоз" || allSelected
+                                ? "bg-black text-white border-black"
+                                : "bg-white border-gray-300"
+                                }`}
+                        >
+                            сельхоз
+                        </button>
+                        <button
+                            onClick={() => setAllSelected(!allSelected)}
+                            className={`px-5 md:px-6 py-2 md:py-3 rounded-xl border transition ${allSelected
+                                ? "bg-black text-white border-black"
+                                : "bg-white border-gray-300"
+                                }`}
+                        >
+                            все
                         </button>
                     </div>
                 </div>

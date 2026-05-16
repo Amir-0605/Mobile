@@ -13,8 +13,8 @@ import LearnMore from './companents/LearnMore/LearnMore';
 const Home = () => {
   return (
     <>
-      <Header />
       <Hero />
+      <Header />
       <Benefits />
       <Questions />
       <Reviews />
