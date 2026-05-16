@@ -1,23 +1,20 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { useParams } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-
 export default function Reviews() {
-    const { slug } = useParams();
     return (
-        <div className="bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)]">
-            <div className="container">
+        <div className="bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)] py-5 md:py-10 lg:py-14">
+            <div className="container px-4 md:px-8 lg:px-16">
 
-                <h1 className="text-xl text-[#29494C] border-b-1 pb-4 pl-5 mb-5 pt-3">
+                <h1 className="text-xl md:text-2xl lg:text-3xl text-[#29494C] border-b pb-4 pl-5 mb-5 pt-3">
                     Отзывы наших клиентов
                 </h1>
 
                 {/* MOBILE / TABLET SWIPER */}
-                <div className="lg:hidden">
+                <div className="lg:hidden overflow-hidden">
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={20}
@@ -26,41 +23,42 @@ export default function Reviews() {
                         pagination={{ clickable: true }}
                         breakpoints={{
                             640: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
+                            768: { slidesPerView: 2 },
                         }}
+                        className="px-1"
                     >
                         <SwiperSlide>
-                            <div className="h-[400px] ml-5 w-[320px] border bg-white/50 rounded-2xl flex items-center justify-center">
-                                <img src="" alt="img" loading="lazy"/>
+                            <div className="h-[320px] md:h-[380px] w-full border bg-white/50 rounded-2xl flex items-center justify-center">
+                                <img src="" alt="img" loading="lazy" />
                             </div>
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <div className="h-[400px] ml-5 mr-5 border bg-white/50 rounded-2xl flex items-center justify-center">
-                                <img src="" alt="img" loading="lazy"/>
+                            <div className="h-[320px] md:h-[380px] w-full border bg-white/50 rounded-2xl flex items-center justify-center">
+                                <img src="" alt="img" loading="lazy" />
                             </div>
                         </SwiperSlide>
 
                         <SwiperSlide>
-                            <div className="h-[400px] ml-5 mr-5 border bg-white/50 rounded-2xl flex items-center justify-center">
-                                <img src="" alt="img" loading="lazy"/>
+                            <div className="h-[320px] md:h-[380px] w-full border bg-white/50 rounded-2xl flex items-center justify-center">
+                                <img src="" alt="img" loading="lazy" />
                             </div>
                         </SwiperSlide>
                     </Swiper>
                 </div>
 
-                {/* DESKTOP GRID (SWIPER HIDDEN ON PC) */}
+                {/* DESKTOP GRID */}
                 <div className="hidden lg:flex gap-6 px-10 pb-10 justify-center">
 
-                    <div className="h-[400px] w-[320px] border bg-white/50 rounded-2xl flex items-center justify-center">
+                    <div className="h-[400px] xl:h-[450px] w-[320px] xl:w-[360px] border bg-white/50 rounded-2xl flex items-center justify-center">
                         <img src="" alt="img" />
                     </div>
 
-                    <div className="h-[400px] w-[320px] border bg-white/50 rounded-2xl flex items-center justify-center">
+                    <div className="h-[400px] xl:h-[450px] w-[320px] xl:w-[360px] border bg-white/50 rounded-2xl flex items-center justify-center">
                         <img src="" alt="img" />
                     </div>
 
-                    <div className="h-[400px] w-[320px] border bg-white/50 rounded-2xl flex items-center justify-center">
+                    <div className="h-[400px] xl:h-[450px] w-[320px] xl:w-[360px] border bg-white/50 rounded-2xl flex items-center justify-center">
                         <img src="" alt="img" />
                     </div>
 
