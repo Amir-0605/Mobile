@@ -93,7 +93,7 @@ const LearnMore = () => {
                         <img
                             src={img1}
                             alt="img"
-                            className='w-full md:w-[400px] lg:w-[500px] rounded-3xl h-[250px] md:h-[300px] mb-4 object-cover'
+                            className='w-full md:w-[400px] lg:w-[500px] rounded-3xl h-[250px] md:h-[300px] mb-4 object-cover filter brightness-95 contrast-90 saturate-90 sepia-[0.05]'
 
                         />
 
@@ -183,9 +183,9 @@ const LearnMore = () => {
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3'>
-                    <img src={map1} alt="map" className='rounded-xl w-full' loading='lazy' />
-                    <img src={map2} alt="map" className='rounded-xl w-full' loading='lazy' />
-                    <img src={map3} alt="map" className='rounded-xl w-full' loading='lazy' />
+                    <img src={map1} alt="map" className='rounded-xl w-full filter brightness-95 contrast-90 saturate-90 sepia-[0.05]' loading='lazy' />
+                    <img src={map2} alt="map" className='rounded-xl w-full filter brightness-95 contrast-90 saturate-90 sepia-[0.05]' loading='lazy' />
+                    <img src={map3} alt="map" className='rounded-xl w-full filter brightness-95 contrast-90 saturate-90 sepia-[0.05]' loading='lazy' />
                 </div>
 
             </div>

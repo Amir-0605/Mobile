@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 const faqData = [
     {
@@ -35,46 +35,53 @@ const Questions = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto py-10 px-5">
-            <div className="space-y-6">
-                <h1 className="text-xl font-bold border-b-1 pb-4">Часто задаваемые вопросы</h1>
-                {faqData.map((item, index) => (
-                    <div
-                        key={index}
-                        className="border-b border-[#D9D9D9] pb-5"
-                    >
-                        <div className="flex items-start justify-between gap-5">
-                            <h2 className="text-2xl font-medium text-[#29494C]">
-                                {item.question}
-                            </h2>
+        <div className="w-full overflow-x-hidden bg-[linear-gradient(45deg,#FFFFFF_0%,#99999999_100%)]">
+            <div className="max-w-4xl mx-auto py-10 px-5">
+                <div className="space-y-6">
+                    <h1 className="text-xl font-bold border-b pb-4">
+                        Часто задаваемые вопросы
+                    </h1>
 
-                            <button
-                                onClick={() => toggleFaq(index)}
-                                className={`transition-all duration-300 text-2xl ${openIndex === index
-                                    ? "-translate-y-1 text-[#29494C]"
-                                    : "text-[#999]"
-                                    }`}
-                            >
-                                {openIndex === index ? (
-                                    <FaEyeSlash />
-                                ) : (
-                                    <FaEye />
-                                )}
-                            </button>
-                        </div>
-
+                    {faqData.map((item, index) => (
                         <div
-                            className={`overflow-hidden transition-all duration-500 ${openIndex === index
-                                    ? "max-h-screen opacity-100 mt-4"
-                                    : "max-h-0 opacity-0"
-                                }`}
+                            key={index}
+                            className="border-b border-[#D9D9D9] pb-5"
                         >
-                            <p className="text-[#666] text-lg leading-8">
-                                {item.answer}
-                            </p>
+                            <div className="flex items-start justify-between gap-5">
+                                <h2 className="text-2xl font-medium text-[#29494C] break-words">
+                                    {item.question}
+                                </h2>
+
+                                <button
+                                    onClick={() => toggleFaq(index)}
+                                    className={`transition-all duration-300 text-2xl ${
+                                        openIndex === index
+                                            ? "-translate-y-1 text-[#29494C]"
+                                            : "text-[#999]"
+                                    }`}
+                                >
+                                    {openIndex === index ? (
+                                        <FaCaretUp />
+                                    ) : (
+                                        <FaCaretDown />
+                                    )}
+                                </button>
+                            </div>
+
+                            <div
+                                className={`overflow-hidden transition-all duration-500 ${
+                                    openIndex === index
+                                        ? "max-h-screen opacity-100 mt-4"
+                                        : "max-h-0 opacity-0"
+                                }`}
+                            >
+                                <p className="text-[#666] text-lg leading-8 break-words">
+                                    {item.answer}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

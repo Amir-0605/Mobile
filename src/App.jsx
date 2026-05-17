@@ -9,6 +9,7 @@ import State from './companents/State/State';
 import KnowBenefits from './companents/KnowBenefits/KnowBenefits';
 import Footer from './companents/Footer/Footer';
 import LearnMore from './companents/LearnMore/LearnMore';
+import PlotDetails from './companents/Plotdetails/Plotdetails';
 
 const Home = () => {
   return (
@@ -42,6 +43,8 @@ const App = () => {
         <Route path='/reviews' element={<Reviews />} />
 
         <Route path='/learnmore' element={<LearnMore />} />
+
+        <Route path="/plot/:id" element={<PlotDetails />} />
       </Routes>
 
     </BrowserRouter>
