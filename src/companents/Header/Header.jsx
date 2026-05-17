@@ -79,7 +79,7 @@ export default function MobileFirstLayout() {
             )}
 
             {/* MAIN */}
-            <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-28 md:px-6 lg:px-10">
+            <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-30 md:px-6 lg:px-10">
 
                 <section>
 
