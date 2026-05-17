@@ -10,7 +10,7 @@ const Hero = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='relative bg-[url("/src/companents/assets/bgimg.webp")] bg-no-repeat pt-25 lg:pt-30 lg:pb-150 lg:w-full h-[1150px] lg:h-auto lg:bg-cover lg:bg-center'>
+        <div className='relative bg-[url("/src/companents/assets/bgimg.webp")] bg-no-repeat pt-22 lg:pt-25 lg:pb-150 lg:w-full h-[1150px] lg:h-auto lg:bg-cover lg:bg-center'>
 
             {/* overlay */}
             <div className='absolute inset-0 bg-black/40'></div>
