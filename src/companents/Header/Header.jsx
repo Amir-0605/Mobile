@@ -39,7 +39,7 @@ export default function MobileFirstLayout() {
         <div className="absolute inset-0 h-380 pt-190 w-full bg-transparent text-white overflow-hidden lg:px-10 lg:mx-auto">
 
             {/* HEADER */}
-            <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-[#ffffff22] shadow-[0_6px_30px_#00000035]">
+            <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-[#F5F0E6] shadow-[0_6px_30px_#00000035]">
                 <div className="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between px-4 md:px-6 lg:px-10">
 
                     <img
@@ -50,13 +50,13 @@ export default function MobileFirstLayout() {
 
                     <div className="flex gap-3 sm:gap-5 md:gap-7 items-center">
 
-                        <Link to={'/filter'} className="text-xl md:text-2xl lg:text-3xl lg:block hidden">
+                        <Link to={'/filter'} className="text-xl md:text-2xl lg:text-3xl text-[#29494C] lg:block hidden">
                             Каталог
                         </Link>
 
                         <div
                             onClick={() => setOpen(true)}
-                            className="flex cursor-pointer items-center gap-2 sm:gap-3"
+                            className="flex cursor-pointer items-center gap-2 sm:gap-3 text-[#29494C]"
                         >
                             <FaPhoneAlt className="text-base sm:text-lg md:text-xl lg:block hidden" />
 
