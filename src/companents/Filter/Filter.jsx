@@ -5,7 +5,7 @@ import img1 from "../assets/img1.webp";
 import img2 from "../assets/img2.webp";
 import img3 from "../assets/img3.webp";
 import img11 from "../assets/img11.webp";
-
+import { useEffect } from "react";
 const Filter = () => {
     const [type, setType] = useState("");
     const [allSelected, setAllSelected] = useState(false);
@@ -26,6 +26,11 @@ const Filter = () => {
         water: false,
         internet: false,
     });
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const plots = [
         {

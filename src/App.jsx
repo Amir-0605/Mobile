@@ -10,8 +10,12 @@ import KnowBenefits from './companents/KnowBenefits/KnowBenefits';
 import Footer from './companents/Footer/Footer';
 import LearnMore from './companents/LearnMore/LearnMore';
 import PlotDetails from './companents/Plotdetails/Plotdetails';
+import { useEffect } from 'react';
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Hero />

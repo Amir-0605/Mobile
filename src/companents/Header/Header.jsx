@@ -16,6 +16,11 @@ export default function MobileFirstLayout() {
     const [activeImg, setActiveImg] = useState(null);
     const [open, setOpen] = useState(false);
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const swiperRef = useRef(null);
 
     const images = [img1, img2, img3, img11];
@@ -38,7 +43,7 @@ export default function MobileFirstLayout() {
                     <div className="flex gap-10 items-center">
                         <Link to={'/filter'} className="text-3xl lg:block hidden">Каталог</Link>
                         <div onClick={() => setOpen(true)} className="flex cursor-pointer items-center gap-4">
-                        <FaPhoneAlt className="text-xl"/>
+                            <FaPhoneAlt className="text-xl" />
                             <p className="hiddenlg:block lg:text-3xl">
                                 7-(978)995-75-05
                             </p>

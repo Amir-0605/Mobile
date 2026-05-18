@@ -6,7 +6,13 @@ import img1 from "../assets/img1.webp"
 import map1 from "../assets/map1.webp"
 import map2 from "../assets/map2.webp"
 import map3 from "../assets/map3.webp"
+import { useEffect } from "react";
 const LearnMore = () => {
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const [open, setOpen] = useState(false);
     return (
 

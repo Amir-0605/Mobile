@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -12,6 +12,11 @@ import img7 from "../assets/img7.webp"
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const Benefits = () => {
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const [open, setOpen] = useState(false)
 

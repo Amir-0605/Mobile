@@ -3,8 +3,12 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useEffect } from "react";
 
 export default function Reviews() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)] py-5 md:py-10 lg:py-14">
             <div className="container px-4 md:px-8 lg:px-16">

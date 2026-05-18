@@ -1,8 +1,12 @@
 import { useState } from 'react'
-
+import { useEffect } from "react";
 const Footer = () => {
     const [open, setOpen] = useState(false);
+    
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className='bg-[#D9D9D9] pb-5'>
             <div className='container'>

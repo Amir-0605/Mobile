@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
+import { useEffect } from "react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom';
 import { FiCheckCircle } from "react-icons/fi";
 
 const Hero = () => {
     const [open, setOpen] = useState(false);
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className='relative bg-[url("/src/companents/assets/bgimg.webp")] bg-no-repeat pt-22 lg:pt-25 lg:pb-150 lg:w-full h-[1150px] lg:h-auto lg:bg-cover lg:bg-center'>

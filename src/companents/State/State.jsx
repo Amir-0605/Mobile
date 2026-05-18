@@ -1,5 +1,9 @@
+import { useEffect } from "react";
 
 const State = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className='bg-[linear-gradient(90deg,#FFFFFF_0%,#99999999_100%)] pb-10'>
             <div className='container'>

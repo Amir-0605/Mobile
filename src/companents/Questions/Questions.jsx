@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
-
+import { useEffect } from "react";
 const faqData = [
     {
         question: "Говорят, в Крыму большие проблемы с водой.",
@@ -27,14 +27,19 @@ const faqData = [
     }
 ];
 
+
+
 const Questions = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const toggleFaq = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
+
         <div className="w-full overflow-x-hidden bg-[linear-gradient(45deg,#FFFFFF_0%,#99999999_100%)]">
             <div className="max-w-4xl mx-auto py-10 px-5">
                 <div className="space-y-6">
@@ -54,11 +59,10 @@ const Questions = () => {
 
                                 <button
                                     onClick={() => toggleFaq(index)}
-                                    className={`transition-all duration-300 text-2xl ${
-                                        openIndex === index
-                                            ? "-translate-y-1 text-[#29494C]"
-                                            : "text-[#999]"
-                                    }`}
+                                    className={`transition-all duration-300 text-2xl ${openIndex === index
+                                        ? "-translate-y-1 text-[#29494C]"
+                                        : "text-[#999]"
+                                        }`}
                                 >
                                     {openIndex === index ? (
                                         <FaCaretUp />
@@ -69,11 +73,10 @@ const Questions = () => {
                             </div>
 
                             <div
-                                className={`overflow-hidden transition-all duration-500 ${
-                                    openIndex === index
-                                        ? "max-h-screen opacity-100 mt-4"
-                                        : "max-h-0 opacity-0"
-                                }`}
+                                className={`overflow-hidden transition-all duration-500 ${openIndex === index
+                                    ? "max-h-screen opacity-100 mt-4"
+                                    : "max-h-0 opacity-0"
+                                    }`}
                             >
                                 <p className="text-[#666] text-lg leading-8 break-words">
                                     {item.answer}
