@@ -39,13 +39,13 @@ export default function MobileFirstLayout() {
         <div className="absolute inset-0 h-380 pt-190 w-full bg-transparent text-white overflow-hidden lg:px-10 lg:mx-auto">
 
             {/* HEADER */}
-            <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-[#ffffff22] shadow-[0_6px_30px_#00000035]">
+            <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-[#29494C] shadow-[0_6px_30px_#00000035]">
                 <div className="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between px-4 md:px-6 lg:px-10">
 
                     <img
                         src={logo}
                         alt="logo"
-                        className="h-10 sm:h-12 md:h-14 lg:h-16 w-30 sm:w-32 md:w-36 lg:w-40 object-cover mix-blend-difference"
+                        className="h-10 sm:h-12 md:h-14 lg:h-16 w-30 sm:w-32 md:w-36 lg:w-40 object-cover opacity-100 mix-blend-screen"
                     />
 
                     <div className="flex gap-3 sm:gap-5 md:gap-7 items-center">
