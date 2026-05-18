@@ -9,16 +9,17 @@ import { FiCheckCircle } from "react-icons/fi";
 const Hero = () => {
     const [open, setOpen] = useState(false);
 
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
-        <div className='relative bg-[url("/src/companents/assets/bgimg.webp")] bg-no-repeat pt-22 lg:pt-25 lg:pb-150 lg:w-full h-[1150px] lg:h-auto lg:bg-cover lg:bg-center'>
+        <div className='relative bg-[url("/src/companents/assets/bgimg.webp")] bg-no-repeat pt-20 sm:pt-20 md:pt-22 lg:pt-25 lg:pb-150 lg:w-full h-[1230px] sm:h-[1450px] md:h-[1450px] lg:h-[1450px] bg-cover bg-center'>
 
-            {/* overlay */}
-            <div className='absolute inset-0 bg-black/40'></div>
+            {/* overlay (тень на всю высоту) */}
+            <div className='absolute inset-0 bg-black/44'></div>
+
+
 
             {/* content */}
             <div className='relative z-10'>
@@ -34,19 +35,29 @@ const Hero = () => {
                         Мы гарантируем юридическую чистоту каждого метра: от небольших наделов под дом, до гектарных массивов для бизнеса
                     </h3>
 
-                    <div className='flex gap-3 pb-1 pt-3 lg:pt-6'>
-                        <Link to={"/filter"} className='z-10 bg-[#29494C] text-[#fff] p-2 text-sm lg:text-base rounded-3xl shadow-[0_4px_20px_#00000040] cursor-pointer'>
+                    <div className='flex flex-col sm:flex-row gap-3 pb-1 pt-3 lg:pt-6'>
+
+                        <Link
+                            to={"/filter"}
+                            className='z-10 bg-[#F6FFD7] text-[#29494C] px-4 sm:px-5 py-3 lg:px-7 lg:py-4 text-sm sm:text-base lg:text-lg font-semibold rounded-3xl shadow-[0_8px_30px_#00000040] cursor-pointer transition-all duration-300 hover:scale-[1.03] text-center'
+                        >
                             Подобрать участок
                         </Link>
-                        <button onClick={() => setOpen(true)} className='z-10 text-sm lg:text-base p-2 border border-[#9E8470E5] text-white rounded-3xl cursor-pointer shadow-[0_4px_20px_#00000040]'>
+
+                        <button
+                            onClick={() => setOpen(true)}
+                            className='z-10 px-4 py-3 lg:px-6 lg:py-4 text-sm lg:text-base border border-[#FFFFFF80] text-white rounded-3xl cursor-pointer shadow-[0_4px_20px_#00000040] bg-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/20'
+                        >
                             Связаться с нами
                         </button>
+
                     </div>
 
                     <div>
                         <h1 className='text-white text-lg lg:text-2xl'>
                             Кому подойдёт покупка земли?
                         </h1>
+
                         <h2 className='text-white text-base lg:text-lg'>
                             Выберите, для чего вы хотите приобрести участок
                         </h2>
@@ -60,6 +71,7 @@ const Hero = () => {
                                 navigation
                                 pagination={{ clickable: true }}
                                 breakpoints={{
+                                    0: { slidesPerView: 1 },   // 👈 мобилка всегда 1 колонка
                                     640: { slidesPerView: 2 },
                                     1024: { slidesPerView: 3 },
                                 }}
@@ -68,7 +80,7 @@ const Hero = () => {
 
                                 {/* CARD 1 */}
                                 <SwiperSlide>
-                                    <div className="bg-white/60 backdrop-blur-md border border-[#29494C]/10 h-[370px] rounded-3xl flex flex-col p-6 lg:p-8 text-[#29494C]">
+                                    <div className="bg-white border border-[#E5E5E5] shadow-[0_10px_35px_#00000020] h-[370px] rounded-3xl flex flex-col p-6 lg:p-8 text-[#29494C]">
 
                                         <h1 className='text-center text-2xl font-bold lg:text-2xl font-500 mb-4'>
                                             Для семьи
@@ -101,7 +113,7 @@ const Hero = () => {
 
                                 {/* CARD 2 */}
                                 <SwiperSlide>
-                                    <div className="bg-white/60 backdrop-blur-md border border-[#29494C]/10 h-[370px] rounded-3xl flex flex-col p-6 lg:p-8 text-[#29494C]">
+                                    <div className="bg-white border border-[#E5E5E5] shadow-[0_10px_35px_#00000020] h-[370px] rounded-3xl flex flex-col p-6 lg:p-8 text-[#29494C]">
 
                                         <h1 className='text-center text-2xl font-bold lg:text-2xl font-500 mb-4'>
                                             Для инвестиций
@@ -134,7 +146,7 @@ const Hero = () => {
 
                                 {/* CARD 3 */}
                                 <SwiperSlide>
-                                    <div className="bg-white/60 backdrop-blur-md border border-[#29494C]/10 h-[370px] rounded-3xl flex flex-col p-6 lg:p-8 text-[#29494C]">
+                                    <div className="bg-white border border-[#E5E5E5] shadow-[0_10px_35px_#00000020] h-[370px] rounded-3xl flex flex-col p-6 lg:p-8 text-[#29494C]">
 
                                         <h1 className='text-center text-2xl font-bold lg:text-2xl font-500 mb-4'>
                                             Для бизнеса
@@ -167,8 +179,11 @@ const Hero = () => {
 
                             </Swiper>
 
-                            <div className='flex justify-center border p-2 lg:p-3 mt-3 bg-white/40 backdrop-blur-md border-[#29494C]/20 shadow-[0_4px_20px_#00000020] rounded-3xl lg:mt-6'>
-                                <Link to={'/knowbenefits'} className='text-sm z-999 lg:text-base text-[#29494C]'>
+                            <div className='flex justify-center mt-3 lg:mt-6'>
+                                <Link
+                                    to={'/knowbenefits'}
+                                    className='z-999 inline-flex items-center justify-center px-6 py-3 lg:px-8 lg:py-4 text-sm lg:text-base font-semibold text-[#29494C] bg-[#F6FFD7] border-2 border-[#29494C] rounded-3xl shadow-[0_10px_30px_#00000020] transition-all duration-300 hover:scale-[1.03]'
+                                >
                                     Узнать о выгоде инвестиций
                                 </Link>
                             </div>
@@ -205,6 +220,7 @@ const Hero = () => {
                                         {/* имя */}
                                         <div className="flex flex-col gap-2">
                                             <label className="text-xs sm:text-sm text-white/70">Имя</label>
+
                                             <input
                                                 placeholder="Введите имя"
                                                 className="w-full h-[48px] sm:h-[55px] md:h-[60px] px-3 sm:px-4 rounded-xl bg-white/10 border border-white/20 text-white outline-none"
@@ -214,13 +230,14 @@ const Hero = () => {
                                         {/* телефон */}
                                         <div className="flex flex-col gap-2">
                                             <label className="text-xs sm:text-sm text-white/70">Телефон</label>
+
                                             <input
                                                 placeholder="+7 (000) 000 00 00"
                                                 className="w-full h-[48px] sm:h-[55px] md:h-[60px] px-3 sm:px-4 rounded-xl bg-white/10 border border-white/20 text-white outline-none"
                                             />
                                         </div>
 
-                                        {/* чекбокс (ИСПРАВЛЕН) */}
+                                        {/* чекбокс */}
                                         <label className="flex items-start gap-3 text-xs sm:text-sm text-white">
 
                                             <input

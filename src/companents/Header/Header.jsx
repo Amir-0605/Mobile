@@ -20,6 +20,9 @@ export default function MobileFirstLayout() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+    const handleCall = () => {
+        window.location.href = "tel:+79789957505";
+    };
 
     const swiperRef = useRef(null);
 
@@ -36,18 +39,32 @@ export default function MobileFirstLayout() {
         <div className="absolute inset-0 h-380 pt-190 w-full bg-transparent text-white overflow-hidden lg:px-10 lg:mx-auto">
 
             {/* HEADER */}
-            <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-white/10">
+            <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 backdrop-blur-md bg-[#ffffff22] shadow-[0_6px_30px_#00000035]">
                 <div className="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between px-4 md:px-6 lg:px-10">
-                    <img src={logo} alt="logo" className="h-15 w-auto object-cover lg:h-15 lg:w-35 object-cover filter brightness-95 contrast-90 saturate-90 sepia-[0.05]" />
 
-                    <div className="flex gap-10 items-center">
-                        <Link to={'/filter'} className="text-3xl lg:block hidden">Каталог</Link>
-                        <div onClick={() => setOpen(true)} className="flex cursor-pointer items-center gap-4">
-                            <FaPhoneAlt className="text-xl" />
-                            <p className="hiddenlg:block lg:text-3xl">
+                    <img
+                        src={logo}
+                        alt="logo"
+                        className="h-10 sm:h-12 md:h-14 lg:h-16 w-30 sm:w-32 md:w-36 lg:w-40 object-cover opacity-100"
+                    />
+
+                    <div className="flex gap-3 sm:gap-5 md:gap-7 items-center">
+
+                        <Link to={'/filter'} className="text-xl md:text-2xl lg:text-3xl lg:block hidden">
+                            Каталог
+                        </Link>
+
+                        <div
+                            onClick={() => setOpen(true)}
+                            className="flex cursor-pointer items-center gap-2 sm:gap-3"
+                        >
+                            <FaPhoneAlt className="text-base sm:text-lg md:text-xl lg:block hidden" />
+
+                            <p className="hidden lg:block lg:text-3xl">
                                 7-(978)995-75-05
                             </p>
                         </div>
+
                     </div>
 
                     <button
@@ -56,9 +73,9 @@ export default function MobileFirstLayout() {
                     >
                         <FiMenu size={28} />
                     </button>
+
                 </div>
             </header>
-
             {/* MENU */}
             {menuOpen && (
                 <>
@@ -78,13 +95,15 @@ export default function MobileFirstLayout() {
                         <nav className="flex flex-col gap-5 p-5 text-lg">
                             <Link to="/filter">Фильтры</Link>
                             <Link to="/filter" className="lg:hidden">Каталог</Link>
+                            <Link to={'#'}>О нас</Link>
+                            <Link to={'#'}>Контакты</Link>
                         </nav>
                     </div>
                 </>
             )}
 
             {/* MAIN */}
-            <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-30 md:px-6 lg:px-10">
+            <main className="mx-auto max-w-[1400px] px-4 pb-28 pt-45 lg:pt-35 md:px-6 lg:px-10">
 
                 <section>
 
@@ -158,15 +177,12 @@ export default function MobileFirstLayout() {
             )}
 
             {/* CALL */}
-            <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4 lg:bottom-6">
-                <button
-                    onClick={() => setOpen(true)}
-                    className="flex h-[56px] w-full max-w-[420px] lg:max-w-[500px] items-center justify-center gap-2 rounded-full bg-white text-black shadow-xl"
-                >
-                    <FiPhone size={18} />
-                    Позвонить
-                </button>
-            </div>
+            <a
+                onClick={handleCall}
+                className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 lg:bottom-6 lg:right-6 z-40 flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#29494C] text-white shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+            >
+                <FiPhone size={22} />
+            </a>
 
             {/* MODAL */}
             {open && (

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { useEffect } from "react";
+
 const faqData = [
     {
         question: "Говорят, в Крыму большие проблемы с водой.",
@@ -27,19 +27,18 @@ const faqData = [
     }
 ];
 
-
-
 const Questions = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const toggleFaq = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    return (
 
+    return (
         <div className="w-full overflow-x-hidden bg-[linear-gradient(45deg,#FFFFFF_0%,#99999999_100%)]">
             <div className="max-w-4xl mx-auto py-10 px-5">
                 <div className="space-y-6">
@@ -52,30 +51,28 @@ const Questions = () => {
                             key={index}
                             className="border-b border-[#D9D9D9] pb-5"
                         >
-                            <div className="flex items-start justify-between gap-5">
+                            <button
+                                onClick={() => toggleFaq(index)}
+                                className="w-full flex items-start justify-between gap-5 text-left"
+                            >
                                 <h2 className="text-2xl font-medium text-[#29494C] break-words">
                                     {item.question}
                                 </h2>
 
-                                <button
-                                    onClick={() => toggleFaq(index)}
-                                    className={`transition-all duration-300 text-2xl ${openIndex === index
-                                        ? "-translate-y-1 text-[#29494C]"
-                                        : "text-[#999]"
+                                <span
+                                    className={`transition-transform duration-300 text-xl shrink-0 ${openIndex === index
+                                            ? "rotate-180 text-[#29494C]"
+                                            : "rotate-0 text-[#999]"
                                         }`}
                                 >
-                                    {openIndex === index ? (
-                                        <FaCaretUp />
-                                    ) : (
-                                        <FaCaretDown />
-                                    )}
-                                </button>
-                            </div>
+                                    ▼
+                                </span>
+                            </button>
 
                             <div
                                 className={`overflow-hidden transition-all duration-500 ${openIndex === index
-                                    ? "max-h-screen opacity-100 mt-4"
-                                    : "max-h-0 opacity-0"
+                                        ? "max-h-screen opacity-100 mt-4"
+                                        : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <p className="text-[#666] text-lg leading-8 break-words">

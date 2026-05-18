@@ -13,25 +13,26 @@
 
     <meta name="keywords" content="Крым, участок, земля, инвестиции, море" />
   </Helmet>
-  <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "RealEstateListing",
-        "name": "Участок Бакальская 1",
-        "description": "Земельный участок у моря в Крыму",
-        "url": "https://your-site.com/learnmore",
-        "image": "https://your-site.com/img1.webp",
-        "offers": {
-          "@type": "Offer",
-          "price": "500000",
-          "priceCurrency": "RUB"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "RU"
-        }
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type = "application/ld+json" >
+
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      "name": "Участок Бакальская 1",
+      "description": "Земельный участок у моря в Крыму",
+      "url": "https://your-site.com/learnmore",
+      "image": "https://your-site.com/img1.webp",
+      "offers": {
+        "@type": "Offer",
+        "price": "500000",
+        "priceCurrency": "RUB"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "RU"
       }
-      </script>
+    }
+  </script>
 </head>
 
 <body>
