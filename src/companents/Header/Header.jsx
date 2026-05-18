@@ -45,7 +45,7 @@ export default function MobileFirstLayout() {
                     <img
                         src={logo}
                         alt="logo"
-                        className="h-10 sm:h-12 md:h-14 lg:h-16 w-30 sm:w-32 md:w-36 lg:w-40 object-cover opacity-100"
+                        className="h-10 sm:h-12 md:h-14 lg:h-16 w-30 sm:w-32 md:w-36 lg:w-40 object-cover opacity-100 mix-blend-screen"
                     />
 
                     <div className="flex gap-3 sm:gap-5 md:gap-7 items-center">
